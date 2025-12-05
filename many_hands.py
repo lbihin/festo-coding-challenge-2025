@@ -3,13 +3,7 @@ from enum import Enum
 from typing import List, Tuple
 
 
-class TypeNoeud(Enum):
-    JONCTION = "jonction"
-    ARTISAN = "artisan"
-
-
 class Noeud:
-
 
     def __init__(self, origine, destination, temps_trajet):
         self.origine = origine
@@ -188,7 +182,9 @@ if __name__ == "__main__":
         )
 
     chemin_rapide, temps = plannificateur.afficher_chemin_le_plus_rapide()
-    print(f"Chemin le plus rapide: {' -> '.join(chemin_rapide.etapes)} | Temps total: {temps} hrs")
+    print(
+        f"Chemin le plus rapide: {' -> '.join(chemin_rapide.etapes)} | Temps total: {temps} hrs"
+    )
 
     mapping = {
         "A": None,
@@ -203,5 +199,9 @@ if __name__ == "__main__":
         "J": None,
         "K": None,
     }
-    nom = ''.join(filter(None,map(lambda lettre: mapping.get(lettre) or '', chemin_rapide.etapes)))
+    nom = "".join(
+        filter(
+            None, map(lambda lettre: mapping.get(lettre) or "", chemin_rapide.etapes)
+        )
+    )
     print(f"Nom à trouver: {nom}")
