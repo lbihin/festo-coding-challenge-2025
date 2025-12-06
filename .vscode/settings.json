@@ -1,3 +1,14 @@
 {
-    "window.zoomLevel": 2
+    "window.zoomLevel": 2,
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#1aff00ad",
+        "titleBar.activeForeground": "#ffffff",
+        "titleBar.inactiveBackground": "#8aff88e0",
+        "titleBar.inactiveForeground": "#ffffff"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.ruff": "always",
+        "source.organizeImports": "always",
+        "source.unusedImports": "always",
+    }
 }
