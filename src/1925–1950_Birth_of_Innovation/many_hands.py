@@ -1,5 +1,4 @@
 from copy import deepcopy
-from enum import Enum
 from typing import List, Tuple
 
 
@@ -167,7 +166,13 @@ class Planificateur:
 
 
 if __name__ == "__main__":
-    with open("connections.txt", "r") as f:
+    import sys
+    from pathlib import Path
+
+    BIRTH_OF_INNO_FOLDER = Path(__file__).resolve().parent
+    if str(BIRTH_OF_INNO_FOLDER) not in sys.path:
+        sys.path.insert(0, str(BIRTH_OF_INNO_FOLDER))
+    with open(BIRTH_OF_INNO_FOLDER / "res/connections.txt", "r") as f:
         lines = f.readlines()[2:]
 
     lister_les_connections()

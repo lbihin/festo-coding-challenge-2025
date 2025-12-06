@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "ipykernel>=7.1.0",
     "numpy>=2.3.5",
+    "ruff>=0.14.8",
     "tqdm>=4.67.1",
 ]
