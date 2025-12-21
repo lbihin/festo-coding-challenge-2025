@@ -1,0 +1,96 @@
+{
+  "maps": [
+    {
+      "name": "Map A",
+      "grid": [
+        "############",
+        "#S..~..R...#",
+        "#.##.~.##..#",
+        "#.>..~..M..#",
+        "#.##.###...#",
+        "#..~....~..#",
+        "#>.M>##....#",
+        "#R..~..##.>#",
+        "#...M>..X..#",
+        "############"
+      ],
+      "rules": { "has_key": false, "conveyors": true }
+    },
+    {
+      "name": "Map B",
+      "grid": [
+        "############",
+        "#S..##..K.>#",
+        "#.##..##.#.#",
+        "#..~..#..~.#",
+        "#>M###..##>#",
+        "#.>.~..R..X#",
+        "#.##>.##...#",
+        "#...M..~..>#",
+        "#R..##.....#",
+        "############"
+      ],
+      "rules": { "has_key": true, "conveyors": true }
+    },
+    {
+      "name": "Map C",
+      "grid": [
+        "############",
+        "#S..>..~~..#",
+        "#.##>##..R.#",
+        "#..>..M..T.#",
+        "#.##>.##...#",
+        "#..~~..##..#",
+        "#.M..>..M..#",
+        "#R..##>..X.#",
+        "#...T..##..#",
+        "############"
+      ],
+      "rules": { "has_key": false, "conveyors": true }
+    }
+  ],
+  "tiles": {
+    "#": { "passable": false },
+    ".": { "energy": 1, "time_mult": 1.0 },
+    "~": { "energy": 3, "time_mult": 1.4 },
+    "M": { "energy": 4, "time_mult": 1.8 },
+    "T": { "energy": 3, "time_mult": 1.0 },
+    "R": { "energy": 1, "time_mult": 1.0, "recharge": 10, "time_penalty": 5.0 },
+    "K": { "energy": 1, "time_mult": 1.0, "pickup_key": true },
+    "D": { "passable_with_key": true },
+    ">": { "energy": 1, "time_mult": 1.0, "conveyor_time_factor": 0.5 },
+    "S": { "energy": 0, "time_mult": 0.0 },
+    "X": { "energy": 0, "time_mult": 0.0 }
+  },
+  "agents": [
+    {
+      "name": "BionicOpter",
+      "base_step_time": { "A": 0.9, "B": 0.95, "C": 0.85 },
+      "battery": { "A": 30, "B": 26, "C": 22 },
+      "perks": {
+        "time_mult_overrides": { ".": 0.95 }
+      }
+    },
+    {
+      "name": "BionicSwift",
+      "base_step_time": { "A": 1.0, "B": 0.95, "C": 0.95 },
+      "battery": { "A": 28, "B": 30, "C": 24 },
+      "perks": {
+        "energy_overrides": { "~": 2 }
+      }
+    },
+    {
+      "name": "BionicFlyingFox",
+      "base_step_time": { "A": 1.05, "B": 1.0, "C": 0.9 },
+      "battery": { "A": 26, "B": 24, "C": 30 },
+      "perks": {
+        "energy_overrides": { "M": 3 },
+        "time_mult_overrides": { "M": 1.6 }
+      }
+    }
+  ],
+  "limits": {
+    "per_map_seconds": { "A": 20, "B": 20, "C": 20 },
+    "overall_seconds": 36
+  }
+}
